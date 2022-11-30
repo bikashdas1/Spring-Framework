@@ -1,8 +1,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
     http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Loading a property file -->
+	<context:property-placeholder location="classpath:routine.properties"/>
 
 	<!--  Define the dependency -->
 	<bean id="proteinShakeEnergy" class="com.spring.starters.ProteinShakeEnergy"></bean>
@@ -11,10 +17,17 @@
 	<bean id="cricketRoutineBean"
 		class="com.spring.starters.CricketRoutine">
 		<constructor-arg ref="proteinShakeEnergy"></constructor-arg>
+		<!-- String Literal Injection -->
+		<property name="energyRequired" value="${foo.energyRequired}"></property>
+		<property name="dayRoutine" value="${foo.dayRoutine}"></property>
 	</bean>
 	<bean id="footballRoutineBean"
 		class="com.spring.starters.FootballRoutine">
-		<constructor-arg ref="proteinShakeEnergy"></constructor-arg>	
+		<!-- Dependency Injection -->
+		<!-- <constructor-arg ref="proteinShakeEnergy"></constructor-arg> -->	
+		<!-- Setter Injection -->
+		<property name="energyService" ref = "proteinShakeEnergy"/>
+		
 	</bean>
 
 

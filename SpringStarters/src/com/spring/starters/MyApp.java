@@ -12,6 +12,10 @@ public class MyApp {
 		System.out.println(cricketRoutine.getDailyWorkout());
 		System.out.println(cricketRoutine.getReplenishment());
 		System.out.println(footballRoutine.getDailyWorkout());
+		System.out.println(footballRoutine.getReplenishment());
+		
+		System.out.println(cricketRoutine.getDayRoutine());
+		System.out.println(cricketRoutine.getEnergyRequired());
 		
 	}
 	
