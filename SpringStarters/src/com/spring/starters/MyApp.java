@@ -6,7 +6,8 @@ public class MyApp {
 	
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		Routine cricketRoutine = context.getBean("cricketRoutineBean", Routine.class);
+		CricketRoutine cricketRoutine = context.getBean("cricketRoutineBean", CricketRoutine.class);
+		CricketRoutine cricketRoutine2 = context.getBean("cricketRoutineBean", CricketRoutine.class);
 		Routine footballRoutine = context.getBean("footballRoutineBean", Routine.class);
 		
 		System.out.println(cricketRoutine.getDailyWorkout());
@@ -15,8 +16,12 @@ public class MyApp {
 		System.out.println(footballRoutine.getReplenishment());
 		
 		System.out.println(cricketRoutine.getDayRoutine());
-		System.out.println(cricketRoutine.getEnergyRequired())   ;
+		System.out.println(cricketRoutine.getEnergyRequired());
 		
+		context.close();
+		
+		System.out.println(cricketRoutine + " " + cricketRoutine2);
+		System.out.println(cricketRoutine == cricketRoutine2);
 	}
 	
 }

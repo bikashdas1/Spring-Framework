@@ -35,5 +35,15 @@ public class CricketRoutine implements Routine {
 	public String getDayRoutine() {
 		return this.dayRoutine;
 	}
+	
+	public void doMyStartupStuff() {
+		System.out.println("The initialization method for cricket startup is called.");
+		System.out.println("Overriding the energyRequired Value!");
+		this.energyRequired = "Much more overridden energy";
+	}
+	
+	public void doMyCleanup() {
+		System.out.println("Destroy method is called for " + this.getClass());
+	}
 
 }

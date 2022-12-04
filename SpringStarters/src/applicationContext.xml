@@ -15,7 +15,8 @@
 	
 	<!--  Define the beans -->
 	<bean id="cricketRoutineBean"
-		class="com.spring.starters.CricketRoutine">
+		class="com.spring.starters.CricketRoutine" scope="prototype" init-method="doMyStartupStuff"
+		destroy-method = "doMyCleanup">
 		<constructor-arg ref="proteinShakeEnergy"></constructor-arg>
 		<!-- String Literal Injection -->
 		<property name="energyRequired" value="${foo.energyRequired}"></property>
