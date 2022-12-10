@@ -8,9 +8,13 @@ public class ScaryThought implements Thought {
 
 	AroundYou aroundYou;
 	
-	@Autowired
-	ScaryThought(AroundYou aroundYou) {
-		this.aroundYou = aroundYou;
+//	@Autowired
+//	ScaryThought(AroundYou aroundYou) {
+//		this.aroundYou = aroundYou;
+//	}
+	
+	ScaryThought() {
+		System.out.println("Inside the default constructor");
 	}
 	
 	@Override
@@ -21,6 +25,11 @@ public class ScaryThought implements Thought {
 	@Override
 	public String getCurrentEnvironment() {
 		return aroundYou.getEnvironmentCondition();
+	}
+	
+	@Autowired
+	public void setAroundYou(AroundYou aroundYou) {
+		this.aroundYou = aroundYou;
 	}
 	
 }
